@@ -1,10 +1,10 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard} from 'react-native';
+import { StyleSheet, Text, View, FlatList, Alert, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import { Header } from './components/Header';
 import { TodoList } from './components/TodoList';
 import { AddTodo } from './components/AddTodo';
- 
+
 
 export default function App() {
 
@@ -19,26 +19,26 @@ export default function App() {
       setTodo(prevTodo => {
         return [{ text: text, id: Math.random() }, ...prevTodo]
       })
-    }else{
-      Alert.alert('oops!', 'Todos must over 3 chars',[
-        {text: 'Understood', onPress: () => console.log('alert closed')}
+    } else {
+      Alert.alert('oops!', 'Todos must over 3 chars', [
+        { text: 'Understood', onPress: () => console.log('alert closed') }
       ])
     }
   }
   return (
-    <TouchableWithoutFeedback onPress={()=>{Keyboard.dismiss()}}>
+    <TouchableWithoutFeedback onPress={() => { Keyboard.dismiss() }}>
       <View style={styles.container}>
-      <Header />
-      <View style={styles.content}>
-        <AddTodo submitHandler={submitHandler} />
-        <View style={styles.list}>
-          <FlatList
-            data={todo}
-            renderItem={({ item }) => <TodoList todo={item} todoHandler={todoHandler} />}
-          />
+        <Header />
+        <View style={styles.content}>
+          <AddTodo submitHandler={submitHandler} />
+          <View style={styles.list}>
+            <FlatList
+              data={todo}
+              renderItem={({ item }) => <TodoList todo={item} todoHandler={todoHandler} />}
+            />
+          </View>
         </View>
       </View>
-    </View>
     </TouchableWithoutFeedback>
   );
 }

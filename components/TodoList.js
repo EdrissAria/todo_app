@@ -7,8 +7,8 @@ export const TodoList = ({ todo, todoHandler }) => {
     return (
         <TouchableOpacity onPress={() => todoHandler(todo.id)}>
             <View style={styles.item}>
-                <MaterialIcons name="delete" size={18} color="#666"/>
                 <Text>{todo.text}</Text>
+                <MaterialIcons name="delete" size={18} color="#666"/>
             </View>
         </TouchableOpacity>
     );
