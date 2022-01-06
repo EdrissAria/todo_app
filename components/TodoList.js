@@ -3,7 +3,6 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { MaterialIcons } from '@expo/vector-icons';
 
 export const TodoList = ({ todo, todoHandler }) => {
-
     return (
         <TouchableOpacity onPress={() => todoHandler(todo.id)}>
             <View style={styles.item}>
